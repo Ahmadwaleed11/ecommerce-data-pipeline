@@ -1,7 +1,10 @@
 from sqlalchemy import create_engine
 import pandas as pd
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
-engine=create_engine('postgresql://postgres:8681@localhost:5432/ecommerce_dw')
+engine=create_engine(os.getenv('Database_url'))
 
 tables={
     'customers':'olist_customers_dataset.csv',
